@@ -493,7 +493,7 @@ def update(sql, *args):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.WARNING)
-    # create_engine('username', 'password', 'test', host='192.168.204.201')
+    create_engine('username', 'password', 'test', host='192.168.204.201')
     update('drop table if exists user')
     update('create table user (id int primary key, name text, email text, passwd text, last_modified real)')
     import doctest
