@@ -38,7 +38,7 @@ db.create_engine(**configs.db)
 wsgi = WSGIApplication(os.path.dirname(os.path.abspath(__file__)))
 
 template_engine = Jinja2TemplateEngine(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
-template_engine.add_filter('datatime', datetime_filter)
+template_engine.add_filter('datetime', datetime_filter)
 
 wsgi.template_engine = template_engine
 
