@@ -15,12 +15,25 @@
     {% for blog in blogs %}
         <article class="uk-article">
             <h2><a href="/blog/{{ blog.id }}">{{ blog.name }}</a></h2>
-            <p class="uk-article-meta">发表于{{ time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(blog.created_at)) }}</p>
+            <p class="uk-article-meta">发表于{{ blog.created_at }}</p>
             <p>{{ blog.summary }}</p>
             <p><a href="/blog/{{ blog.id }}">继续阅读 <i class="uk-icon-angle-double-right"></i></a></p>
         </article>
         <hr class="uk-article-divider">
     {% endfor %}
+        <ul class="uk-pagination">
+        {% if page.has_previous %}
+            <li><a href="/?page={{ page.page_index - 1 }}"><i class="uk-icon-angle-double-left"></i></a></li>
+        {% else %}
+            <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
+        {% endif %}
+            <li class="uk-active"><span>{{ page.page_index }}</span></li>
+        {% if page.has_next %}
+            <li><a href="/?page={{ page.page_index + 1 }}"><i class="uk-icon-angle-double-right"></i></a></li>
+        {% else %}
+            <li class="uk-disabled"><span><i class="uk-icon-angle-double-right"></i></span></li>
+        {% endif %}
+        </ul>
     </div>
 
     <div class="uk-width-medium-1-4">
@@ -28,7 +41,7 @@
             <h3 class="uk-panel-title">友情链接</h3>
             <ul class="uk-list uk-list-line">
                 <li><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="https://www.zhihu.com">知乎</a></li>
-                <li><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="http://weavesilk.com/">读书</a></li>
+                <li><i class="uk-icon-thumbs-o-up"></i> <a target="_blank" href="http://weavesilk.com/">绘图</a></li>
             </ul>
         </div>
     </div>
